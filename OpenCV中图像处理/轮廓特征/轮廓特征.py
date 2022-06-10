@@ -8,7 +8,7 @@ def findContours(image, mode, method, contours=None, hierarchy=None, offset=None
 @param mode Contour retrieval mode, see #RetrievalModes     轮廓检索模式
 @param method Contour approximation method, see #ContourApproximationModes     轮廓近似法
 return： 
-        contours：图像轮廓坐标，是一个链表
+        contours：图像轮廓坐标，是一个链表, 多个轮廓的坐标值
         hierarchy：[Next, Previous, First Child, Parent]
             Next：与当前轮廓处于同一层级的下一条轮廓    
             Previous：与当前轮廓处于同一层级的上一条轮廓    
@@ -20,7 +20,9 @@ contours, hierarchy = cv.findContours(thresh, 1, 2)
 # print('---------------------------')
 # print(hierarchy)
 cnt = contours[0]
+# cnt1 = contours[1]
 # print(cnt)
+# print(cnt1)
 # print('============================')
 '''
 def moments(array, binaryImage=None):
@@ -31,7 +33,7 @@ def moments(array, binaryImage=None):
 return: 返回质心坐标
 '''
 M = cv.moments(cnt)
-# print(M)
+print(M)
 # 质心
 cx = int(M['m10'] / M['m00'])
 cy = int(M['m01'] / M['m00'])
